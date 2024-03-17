@@ -58,7 +58,7 @@ int main() {
     int ans;
     do {
 
-        cout << "\n----------------------\n";
+        cout << "----------------------\n";
         cout << "Main Menu:\n";
         cout << "1. Add Car\n";
         cout << "2. Update Car Details\n";
@@ -67,7 +67,7 @@ int main() {
         cout << "5. Check Car Availability\n";
         cout << "6. Rent Car\n";
         cout << "7. Logout\n";
-        cout << "\n----------------------\n";
+        cout << "----------------------\n";
         cout << "Enter your choice: ";
         cin >> ans;
         switch (ans) {
