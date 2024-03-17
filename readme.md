@@ -34,6 +34,4 @@ functions:
 -
 You'll need to implement the functionalities such as adding cars, renting cars, and the login system.
 
-
-
 good luck :)
