@@ -90,7 +90,7 @@ int main() {
  }
  else {
      cout << "Unfortunately,this car is not available." << endl ;
-     cout << "You can press 5 to check other car" << endl ;
+     cout << "Press 5 to check for another car" << endl ;
  }
  break;
             case 6:
