@@ -125,7 +125,7 @@ void listCars() {
 bool checkCar() {
    bool check;
   int carnumber;
-  cout << "PLease enter the number of the car you want to check: " << endl;
+  cout << "PLease enter the number of the car you want to check: ";
   cin >> carnumber;
   carnumber -= 1;
   if (cars[carnumber].available) {
