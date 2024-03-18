@@ -123,7 +123,7 @@ void listCars() {
 }
 
 bool checkCar() {
-   bool check;
+    bool check = false;
   int carnumber;
   cout << "PLease enter the number of the car you want to check: ";
   cin >> carnumber;
