@@ -22,12 +22,20 @@ struct Car {
     bool available;
 };
 
+ Car cars[maxcars]{
+
+
+
+
+
+    };
+
 
 void addCar();
 void updateCar();
 void removeCar();
 void listCars();
-void checkCar();
+bool checkCar();
 void rentCar();
 void login();
 
@@ -39,15 +47,7 @@ int main() {
 
 
     };
-    Car cars[maxcars]{
-
-
-
-
-
-    };
-
-
+   
 
     int numCustomers = 0;
     int numCars = 0;
@@ -84,8 +84,15 @@ int main() {
                 listCars();
                 break;
             case 5:
-                checkCar();
-                break;
+               if (checkCar()) {
+     cout << "Fortunately,this car is available." << endl ;
+     cout << "You can rent it" << endl ;
+ }
+ else {
+     cout << "Unfortunately,this car is not available." << endl ;
+     cout << "You can press 5 to check other car" << endl ;
+ }
+ break;
             case 6:
                 rentCar();
                 break;
@@ -115,10 +122,20 @@ void listCars() {
     //mohamedAhmed
 }
 
-void checkCar() {
-    //Noha
+bool checkCar() {
+   bool check;
+  int carnumber;
+  cout << "PLease enter the number of the car you want to check: " << endl;
+  cin >> carnumber;
+  carnumber -= 1;
+  if (cars[carnumber].available) {
+      check = true;
+  }
+  else {
+      check = false;
+  }
+     return check ;
 }
-
 void rentCar() {
     // abdallah
 }
