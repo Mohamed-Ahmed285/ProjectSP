@@ -3,10 +3,13 @@
 #include <string>
 using namespace std;
 
+//// ----- Constants ------
 
 const int MAX_USERS = 100;
 const int MAX_CARS = 100;
 
+
+// ----- Structs ------
 
 struct Customer {
     string name;
@@ -32,9 +35,12 @@ Car cars[MAX_CARS]{
 };
 Customer customers[MAX_USERS]{};
 
+
+// ----- Functions ------
+
 void addCar();
 void updateCar();
-void removeCar();
+void removeCar(int* numCars, int to_remove);
 void listCars(int n);
 bool checkCar();
 void rentCar();
@@ -70,8 +76,11 @@ int main() {
         case 2:
             updateCar();
             break;
-        case 3:
-            removeCar();
+        case 3: // loay
+            int to_remove;
+            cout << "Enter number of car want to remove: ";
+            cin >> to_remove;
+            removeCar(&numCars, to_remove);
             break;
         case 4:
             listCars(numCars);
@@ -104,7 +113,7 @@ int main() {
 
 
 void addCar() {
-    //muhammad
+    //TODO:muhammad
 }
 
 
@@ -130,13 +139,29 @@ void updateCar() {
 }
 //done ... <3
 
-void removeCar() {
-    // loay
+void removeCar(int* numCars, int to_remove) { //TODO: loay
+    for (int i = 1 ; i < *numCars; i++)
+    {
+        if (cars[i-1].carnum == to_remove) //from the removed every one = to the next untill end
+        {
+            for (int j = i; j < *numCars; j++)
+            {
+                cars[j-1].carnum = cars[j].carnum;
+                cars[j-1].available = cars[j].available;
+                cars[j-1].brand = cars[j].brand;
+                cars[j-1].color = cars[j].color;
+                cars[j-1].distanceTraveled = cars[j].distanceTraveled;
+                cars[j-1].model = cars[j].model;
+            }
+        }
+    }
+    *numCars--; //to remove from couter the last one
+    
 }
 
 
 void listCars(int n) {
-    //mohamedAhmed
+    //TODO:mohamedAhmed
     cout << "\nThe list of Cars :\n";
     cout << "\n";
     for (int i = 0; i < n; i++) {
@@ -182,10 +207,10 @@ bool checkCar() {
 //done ... <3
 
 void rentCar() {
-    // abdallah
+    //TODO: abdallah
 }
 
 
 void login() {
-    // mohamed gamel gdn
+    //TODO: mohamed gamel gdn
 }
