@@ -142,7 +142,7 @@ void updateCar() {
 void removeCar(int* numCars, int to_remove) { //TODO: loay
     for (int i = 1 ; i < *numCars; i++)
     {
-        if (cars[i-1].carnum == to_remove) //from the removed every one = to the next untill end
+        if (cars[i-1].carnum == to_remove) //from the removed: every one equal to the next until end
         {
             for (int j = i; j < *numCars; j++)
             {
