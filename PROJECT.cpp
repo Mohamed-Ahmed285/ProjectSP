@@ -139,24 +139,26 @@ void updateCar() {
 }
 //done ... <3
 
-void removeCar(int* numCars, int to_remove) { //TODO: loay
-    for (int i = 1 ; i < *numCars; i++)
+void removeCar(int* numCars, int to_remove) { //TODO: loay && will be updated removing by number of listing car not by carnum
+    bool isfound = false;
+    
+    for (int i = 0 ; i < *numCars; i++)
     {
-        if (cars[i-1].carnum == to_remove) //from the removed: every one equal to the next until end
+        if (cars[i].carnum == to_remove) 
         {
-            for (int j = i; j < *numCars; j++)
-            {
-                cars[j-1].carnum = cars[j].carnum;
-                cars[j-1].available = cars[j].available;
-                cars[j-1].brand = cars[j].brand;
-                cars[j-1].color = cars[j].color;
-                cars[j-1].distanceTraveled = cars[j].distanceTraveled;
-                cars[j-1].model = cars[j].model;
-            }
+                isfound = true;
+            
+                cars[i] = cars[*numcars - 1]; //just swap
+                (*numCars)--; //to remove from couter the last one
+                break;
         }
     }
-    *numCars--; //to remove from couter the last one
-    
+
+    if(!isfound){
+        court << "the car is not found";
+    }
+
+        
 }
 
 
