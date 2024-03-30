@@ -166,24 +166,11 @@ void listCars(int n) {
     cout << "\n";
     for (int i = 0; i < n; i++) {
 
-
         cout << "car number " << cars[i].carnum << "\n";
         cout << "brand : " << cars[i].brand << "\n";
         cout << "model : " << cars[i].model << "\n";
         cout << "Color : " << cars[i].color << "\n";
         cout << "Traveld Distance : " << cars[i].distanceTraveled << "\n";
-
-        if (cars[i].available) {
-
-            cout << "available \n";
-
-        }
-        else
-        {
-            cout << "unavailable \n";
-        }
-
-        cout << "\t-----\n";
 
     }
 
