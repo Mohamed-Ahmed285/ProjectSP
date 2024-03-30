@@ -148,14 +148,14 @@ void removeCar(int* numCars, int to_remove) { //TODO: loay && will be updated re
         {
                 isfound = true;
             
-                cars[i] = cars[*numcars - 1]; //just swap
+                cars[i] = cars[*numCars - 1]; //just swap
                 (*numCars)--; //to remove from couter the last one
                 break;
         }
     }
 
     if(!isfound){
-        court << "the car is not found";
+        cout << "the car is not found";
     }
 
         
