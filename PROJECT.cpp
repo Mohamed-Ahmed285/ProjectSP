@@ -195,9 +195,31 @@ bool checkCar() {
 }
 //done ... <3
 
-void rentCar() {
+void rentCar() 
+{
     //TODO: abdallah
-}
+    int n;
+    do
+    {
+
+        cout << "\n Select car number,please\n";
+        cin >> n;
+
+        if (n <= x) // check the number is in the range
+        {
+
+            if (cars[n - 1].available == true) // check if the car is avaliable or rented
+            {
+                cout << "The Car is Avaliable, You have rented it Succefully!\n";
+                cars[n - 1].available == false;
+            }
+            else
+                cout << " Already rented\n ";
+        }
+        else
+            cout << "Invalid Number , Please Try Again\n ";
+    } while (n > x || cars[n - 1].available == false);
+}//done ... <3 
 
 
 void login() {
