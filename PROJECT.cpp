@@ -38,7 +38,7 @@ Customer customers[MAX_USERS]{};
 
 // ----- Functions ------
 
-void addCar();
+void addCar(int m);
 void updateCar();
 void removeCar(int* numCars, int to_remove);
 void listCars(int n);
@@ -71,7 +71,7 @@ int main() {
         cin >> ans;
         switch (ans) {
         case 1:
-            addCar();
+            addCar(numCars);
             break;
         case 2:
             updateCar();
@@ -112,9 +112,30 @@ int main() {
 
 
 
-void addCar() {
+void addCar(int m) {
     //TODO:muhammad
+
+    cars[m].carnum = m + 1; // index of new car is m , and m is the number of cars in system
+
+    cout << "Enter car's Brand: \n";
+    cin >> cars[m].brand;
+
+    cout << "Enter car's Model \n";
+    cin >> cars[m].model;
+
+    cout << "Enter car's Color \n";
+    cin >> cars[m].color;
+
+    cout << "Enter car's Distance Traveled \n";
+    cin >> cars[m].distanceTraveled;
+
+    cars[m].available = true;
+
+    cout << "The New Car's Number is: " << cars[m].carnum << endl;
+    cout << "\n Car Added Successfully! \n\n";
+
 }
+// done ... <3
 
 
 void updateCar() {
