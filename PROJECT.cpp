@@ -43,7 +43,7 @@ void updateCar();
 void removeCar(int* numCars, int to_remove);
 void listCars(int n);
 bool checkCar();
-void rentCar();
+void rentCar(int x);
 void login();
 
 int main() {
@@ -96,7 +96,7 @@ int main() {
             }
             break;
         case 6:
-            rentCar();
+            rentCar(numCars);
             break;
         case 7:
             cout << "Logged out successfully.\n";
@@ -195,7 +195,7 @@ bool checkCar() {
 }
 //done ... <3
 
-void rentCar() 
+void rentCar(int x) 
 {
     //TODO: abdallah
     int n;
@@ -205,20 +205,21 @@ void rentCar()
         cout << "\n Select car number,please\n";
         cin >> n;
 
-        if (n <= x) // check the number is in the range
+        if (n <= x && n > 0) // check the number is in the range
         {
 
             if (cars[n - 1].available == true) // check if the car is avaliable or rented
             {
-                cout << "The Car is Avaliable, You have rented it Succefully!\n";
+                cout << "\n The Car is Avaliable, You have rented it Succefully!\n\n";
                 cars[n - 1].available == false;
             }
             else
-                cout << " Already rented\n ";
+                cout << " Already rented, choose another one \n";
         }
         else
             cout << "Invalid Number , Please Try Again\n ";
     } while (n > x || cars[n - 1].available == false);
+
 }//done ... <3 
 
 
