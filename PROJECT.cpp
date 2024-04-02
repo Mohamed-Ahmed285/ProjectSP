@@ -16,7 +16,6 @@ struct Customer {
     string mobileNum;
     string address;
 };
-
 struct Car {
     int carnum;
     string brand;
@@ -26,18 +25,13 @@ struct Car {
     bool available;
 };
 
-Car cars[MAX_CARS]{
-
-    {1 , "brand1" , "model1" , "color1" , 0.0 , true},      // exampels for testing
-    {2, "brand2" , "model2" , "color2" , 1.1 , false},     //
-    {3, "brand3" , "model3", "color3", 2.0 , true},       //
-
-};
+Car cars[MAX_CARS]{};
 Customer customers[MAX_USERS]{};
 
 
 // ----- Functions ------
-
+int readCarsFromFile();
+void writeCarsToFile(int numCars);
 void addCar(int& m);
 void updateCar();
 void removeCar(int* numCars, int to_remove);
@@ -46,10 +40,11 @@ bool checkCar();
 void rentCar(int x);
 void login();
 
+
 int main() {
 
     int numCustomers = 0;
-    int numCars = 3;
+    int numCars = readCarsFromFile();
 
     login();
 
@@ -99,6 +94,7 @@ int main() {
             rentCar(numCars);
             break;
         case 7:
+            writeCarsToFile(numCars);
             cout << "Logged out successfully.\n";
             break;
         default:
@@ -275,4 +271,22 @@ void rentCar(int x)
 
 void login() {
     //TODO: mohamed gamel gdn
+}
+
+// filestream functions -> mido
+int readCarsFromFile() {
+    ifstream file("cars.txt");
+    int numCars = 0;
+    while (file >> cars[numCars].carnum >> cars[numCars].brand >> cars[numCars].model >> cars[numCars].color >> cars[numCars].distanceTraveled >> cars[numCars].available) {
+        numCars++;
+    }
+    file.close();
+    return numCars;
+}
+void writeCarsToFile(int numCars) {
+    ofstream file("cars.txt");
+    for (int i = 0; i < numCars; ++i) {
+        file << cars[i].carnum << " " << cars[i].brand << " " << cars[i].model << " " << cars[i].color << " " << cars[i].distanceTraveled << " " << cars[i].available << endl;
+    }
+    file.close();
 }
