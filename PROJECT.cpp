@@ -154,7 +154,7 @@ void updateCar(Car cars1[]) {
 }
 //done ... <3
 
-void removeCar(int* numCars, int to_remove, Car cars1[]) { //TODO: loay && will be updated removing by number of listing car not by carnum
+void removeCar(int* numCars, int to_remove, Car cars1[]) { //TODO: ENG/loay
     bool isfound = false;
 
     for (int i = 0; i < *numCars; i++)
@@ -162,9 +162,11 @@ void removeCar(int* numCars, int to_remove, Car cars1[]) { //TODO: loay && will 
         if (cars1[i].carnum == to_remove)
         {
             isfound = true;
-            cars1[i] = cars1[*numCars - 1]; //just swap
-            (*numCars)--; //to remove from couter the last one
-            cars1[i].available = false;
+            for (int j = i; j < *numCars - 1; j++) // i don't want to enter if its the last car
+            {
+                cars1[j] = cars1[j + 1];
+            }
+            (*numCars)--;
             cout << "The car has been removed successfully !! \n";
             break;
         }
@@ -174,9 +176,7 @@ void removeCar(int* numCars, int to_remove, Car cars1[]) { //TODO: loay && will 
         cout << "the car is not found\n";
     }
 
-
 }
-//done ... <3
 
 void listCars(int n, Car cars1[]) { //TODO:mohamedAhmed
     if (n > 0) {
