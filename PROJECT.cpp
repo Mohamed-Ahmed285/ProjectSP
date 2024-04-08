@@ -31,7 +31,7 @@ int readCarsFromFile(Car cars1[]);
 void writeCarsToFile(int numCars, Car cars1[]);
 void addCar(int& m, Car cars1[]);
 void updateCar(Car cars1[]);
-void removeCar(int* numCars, int to_remove, Car cars1[]);
+int removeCar(int* numCars, int to_remove, Car cars1[]);
 void listCars(int n, Car cars1[]);
 bool checkCar(Car cars1[]);
 void rentCar(int x, Car cars1[]);
@@ -154,7 +154,7 @@ void updateCar(Car cars1[]) {
 }
 //done ... <3
 
-void removeCar(int* numCars, int to_remove, Car cars1[]) { //TODO: ENG/loay
+int removeCar(int* numCars, int to_remove, Car cars1[]) { //TODO: ENG/loay
     bool isfound = false;
 
     for (int i = 0; i < *numCars; i++)
@@ -167,15 +167,17 @@ void removeCar(int* numCars, int to_remove, Car cars1[]) { //TODO: ENG/loay
                 cars1[j] = cars1[j + 1];
             }
             (*numCars)--;
-            cout << "The car has been removed successfully !! \n";
             break;
         }
     }
 
-    if (!isfound) {
+    if (isfound) {
+        cout << "The car has been removed successfully !! \n";
+    }else{
         cout << "the car is not found\n";
-    }
+    }   
 
+    return *numCars;
 }
 
 void listCars(int n, Car cars1[]) { //TODO:mohamedAhmed
