@@ -1,3 +1,4 @@
 1 brand1 model1 color1 0 1
 2 brand2 model2 color2 1.1 0
 3 brand3 model3 color3 2 1
+

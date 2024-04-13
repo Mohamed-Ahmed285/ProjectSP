@@ -29,7 +29,7 @@ struct Car {
 // ----- Functions ------
 int readCarsFromFile(Car cars1[]);
 void writeCarsToFile(int numCars, Car cars1[]);
-void addCar(int& m, Car cars1[]);
+int addCar(int& m, Car cars1[]);
 void updateCar(Car cars1[]);
 int removeCar(int* numCars, int to_remove, Car cars1[]);
 void listCars(int n, Car cars1[]);
@@ -65,6 +65,9 @@ int main() {
         switch (ans) {
         case 1:
             addCar(numCars, cars);
+            cout << "The New Car's Number is: " << numCars << endl;
+            cout << "Car Added Successfully!\n";
+            cout << "\t-----\n";
             break;
         case 2:
             updateCar(cars);
@@ -106,7 +109,7 @@ int main() {
 
 
 
-void addCar(int& m, Car cars1[]) {//TODO:muhammad
+int addCar(int& m, Car cars1[]) {//TODO:muhammad
 
     cars1[m].carnum = m + 1; // index of new car is m , and m is the number of cars in system
 
@@ -124,10 +127,8 @@ void addCar(int& m, Car cars1[]) {//TODO:muhammad
 
     cars1[m].available = true;
 
-    cout << "The New Car's Number is: " << cars1[m].carnum << endl;
     m++;
-    cout << "Car Added Successfully!\n";
-    cout << "\t-----\n";
+    return m;
 
 }
 // done ... <3
@@ -154,7 +155,7 @@ void updateCar(Car cars1[]) {
 }
 //done ... <3
 
-int removeCar(int* numCars, int to_remove, Car cars1[]) { //TODO: ENG/loay
+int removeCar(int* numCars, int to_remove, Car cars1[]) { //TODO: loay
     bool isfound = false;
 
     for (int i = 0; i < *numCars; i++)
@@ -179,6 +180,7 @@ int removeCar(int* numCars, int to_remove, Car cars1[]) { //TODO: ENG/loay
 
     return *numCars;
 }
+//done ... <3
 
 void listCars(int n, Car cars1[]) { //TODO:mohamedAhmed
     if (n > 0) {
