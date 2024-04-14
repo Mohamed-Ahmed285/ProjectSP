@@ -133,27 +133,45 @@ int addCar(int& m, Car cars1[]) {//TODO:muhammad
 }
 // done ... <3
 
-void updateCar(Car cars1[]) {
-    int choice;
+void updateCar(Car cars1[]) {//TODO:Nada
+    int carChoice, detailChoice;
     cout << "Enter the number of the car you want to update its details : ";
-    cin >> choice;
-    if (choice >= 1 && choice <= MAX_CARS) {
-        int carindex = choice - 1;
+    cin >> carChoice;
+    cout << "\t-----\n";
+    cout << "1.Brand\n2.Model\n3.Color\n4.Distance Travelled by kilometer\n";
+    cout << "\t-----\n";
+    cout << "What detail you want to change : ";
+    cin >> detailChoice;
+    if (carChoice >= 1 && carChoice <= MAX_CARS) {
+        int carindex = carChoice - 1;
         cout << "Enter the updated details :" << endl;
-        cout << "Brand :";
-        cin >> cars1[carindex].brand;
-        cout << "Model :";
-        cin >> cars1[carindex].model;
-        cout << "Color :";
-        cin >> cars1[carindex].color;
-        cout << "Distance Travelled by kilometer :";
-        cin >> cars1[carindex].distanceTraveled;
+        switch (detailChoice)
+        {
+        case 1:
+            cout << "Brand :";
+            cin >> cars1[carindex].brand;
+            break;
+        case 2:
+            cout << "Model :";
+            cin >> cars1[carindex].model;
+            break;
+        case 3:
+            cout << "Color :";
+            cin >> cars1[carindex].color;
+            break;
+        case 4:
+            cout << "Distance Travelled by kilometer :";
+            cin >> cars1[carindex].distanceTraveled;
+            break;
+        default:
+            break;
+        }
         cout << "The details are updated successfully" << endl;
     }
     else
         cout << "Invalid choice ,please try again !" << endl;
 }
-//done ... <3
+// done ... <3
 
 int removeCar(int* numCars, int to_remove, Car cars1[]) { //TODO: loay
     bool isfound = false;
