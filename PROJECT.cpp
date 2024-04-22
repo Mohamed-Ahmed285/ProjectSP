@@ -23,12 +23,11 @@ struct Car {
     bool available;
 };
 
-
-
-
 // ----- Functions ------
 int readCarsFromFile(Car cars1[]);
 void writeCarsToFile(int numCars, Car cars1[]);
+int readCustomersFromFile(Customer customers[]);
+void writeCustomersToFile(int numCustomers, Customer customers[]);
 int addCar(int& m, Car cars1[]);
 void updateCar(Car cars1[]);
 int removeCar(int* numCars, int to_remove, Car cars1[]);
@@ -36,11 +35,13 @@ void listCars(int n, Car cars1[]);
 bool checkCar(Car cars1[]);
 void rentCar(int x, Car cars1[]);
 void login(int& num, Customer customers1[]);
+
+
 int main() {
 
     Car cars[MAX_CARS]{};
     Customer customers[MAX_USERS]{};
-    int numCustomers = 0;
+    int numCustomers = readCustomersFromFile(customers);
     int numCars = readCarsFromFile(cars);
 
 
@@ -96,6 +97,7 @@ int main() {
             break;
         case 7:
             writeCarsToFile(numCars, cars);
+            writeCustomersToFile(numCustomers, customers);
             cout << "Logged out successfully.\n";
             break;
         default:
@@ -310,22 +312,24 @@ void rentCar(int x, Car cars1[])
 }
 //done ... <3 
 
-void login(int& num, Customer customers1[]){
+void login(int& num, Customer customers[]){
 
         cout << "\t\t\t\t\t\t\t\tWELCOME TO OUR PROJECT\n";
         cout << "\t\t\t\t\t\t\t\t----------------------\n";
         cout << "Please enter your data : \n";
         cout << "Name: ";
-        getline(cin, customers1[num].name);
+        getline(cin, customers[num].name);
         cout << "Mobile number: ";
-        getline(cin, customers1[num].mobileNum);
+        getline(cin, customers[num].mobileNum);
         cout << "Address: ";
-        getline(cin, customers1[num].address);
+        getline(cin, customers[num].address);
+        num++;
 
     }
 //done ... <3
 
 // filestream functions -> mohammed
+
     int readCarsFromFile(Car cars1[]) {
 
         ifstream file("cars.txt");
@@ -336,6 +340,7 @@ void login(int& num, Customer customers1[]){
         file.close();
         return numCars;
     }
+   
     void writeCarsToFile(int numCars, Car cars1[]) {
         ofstream file("cars.txt");
         for (int i = 0; i < numCars; ++i) {
@@ -343,3 +348,33 @@ void login(int& num, Customer customers1[]){
         }
         file.close();
     }
+ 
+    int readCustomersFromFile(Customer customers[]) {
+
+        ifstream file("customers.txt");
+        int numCustomers = 0;
+        while (file >> customers[numCustomers].name >> customers[numCustomers].mobileNum >> customers[numCustomers].address) {
+            numCustomers++;
+        }
+        file.close();
+        return numCustomers;
+
+    }
+    
+    void writeCustomersToFile(int numCustomers, Customer customers[]) {
+        ofstream file("customers.txt");
+        for (int i = 0; i < numCustomers; ++i) {
+            file << customers[i].name << " " << customers[i].mobileNum << " " << customers[i].address << endl;
+        }
+        file.close();
+    }
+    
+    
+    
+    
+    
+    
+    
+    /*  string name;
+        string mobileNum;
+        string address; */
