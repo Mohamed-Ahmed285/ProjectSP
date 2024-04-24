@@ -48,7 +48,7 @@ int main() {
 
     login(numCustomers, customers);
 
-    int ans;
+    char ans;
     do {
 
         cout << "----------------------\n";
@@ -64,25 +64,25 @@ int main() {
         cout << "Enter your choice: ";
         cin >> ans;
         switch (ans) {
-        case 1:
+        case '1':
             addCar(numCars, cars);
             cout << "The New Car's Number is: " << numCars << endl;
             cout << "Car Added Successfully!\n";
             cout << "\t-----\n";
             break;
-        case 2:
+        case '2':
             updateCar(cars);
             break;
-        case 3:
+        case '3':
             int to_remove;
             cout << "Enter the number of the car you want to remove: ";
             cin >> to_remove;
             removeCar(&numCars, to_remove, cars);
             break;
-        case 4:
+        case '4':
             listCars(numCars, cars);
             break;
-        case 5:
+        case '5':
             if (checkCar(cars)) {
                 cout << "Fortunately,this car is available." << endl;
                 cout << "You can rent it" << endl;
@@ -92,10 +92,10 @@ int main() {
                 cout << "Press 5 to check for another car" << endl;
             }
             break;
-        case 6:
+        case '6':
             rentCar(numCars, cars);
             break;
-        case 7:
+        case '7':
             writeCarsToFile(numCars, cars);
             writeCustomersToFile(numCustomers, customers);
             cout << "Logged out successfully.\n";
@@ -103,7 +103,7 @@ int main() {
         default:
             cout << "Invalid choice. Please try again.\n";
         }
-    } while (ans != 7);
+    } while (ans != '7');
 
     return 0;
 
