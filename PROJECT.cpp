@@ -701,17 +701,38 @@ void CustomerMenu(int numCustomers, int numCars , Customer customers[] , Car car
             break;
                 }
         case 3:{
+
             int to_remove;
+            bool notfound = true;
             cout << "Enter the number of the car you want to remove: ";
             cin >> to_remove;
-            bool x;
-            removeCar(numCars, to_remove, cars,x);
-            removeCar(UserNumCars,to_remove,usercars,x);
-            if(x){
+
+            for(int i = 0 ; i < UserNumCars ; i++)
+                {
+                    if(usercars[i].carnum == to_remove)
+                    {
+                        notfound = false;
+                    }else
+                    {
+                        continue;
+                    }
+                }
+                if(notfound)
+                {
+                    cout << "this car is either not yours or doesn't exist please chose another one"<< endl;
+                }
+                else{
+                        bool x;
+                        removeCar(numCars, to_remove, cars,x);
+                        removeCar(UserNumCars,to_remove,usercars,x);
+                                if(x){
                         cout << "The car has been removed successfully !! \n";
-            }else{
-                        cout << "the car is not found\n";
-            }
+                         }else{
+                        cout << "the car is not found\n";  }
+                }
+
+          
+            
             break;
             }
         case 4:{
