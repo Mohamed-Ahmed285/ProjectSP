@@ -28,7 +28,7 @@ struct Car {
 };
 
 // ----- Functions ------
-int  removeCar(int& numCars, int to_remove, Car cars1[],bool x);
+int  removeCar(int& numCars, int to_remove, Car cars1[],bool& x);
 void copyfunction(int sysnum , int usernum,Car cars[],Car usercars[]);
 int  readCarsFromFile(Car cars1[]);
 int  readUserCars(Car usercars[], int id);
@@ -187,7 +187,7 @@ void updateCar(int carChoice, Car cars1[],int numCars) {//TODO:Nada
 
 
 // removeCar(usernumcars,(usercars[i].carnum),usercars, x);
-int removeCar(int& numCars, int to_remove, Car cars1[],bool x) { //TODO: loay
+int removeCar(int& numCars, int to_remove, Car cars1[],bool& x) { //TODO: loay
     
     bool isfound = false;
     for (int i = 0; i < numCars; i++)
@@ -725,7 +725,7 @@ void CustomerMenu(int numCustomers, int numCars , Customer customers[] , Car car
                         bool x;
                         removeCar(numCars, to_remove, cars,x);
                         removeCar(UserNumCars,to_remove,usercars,x);
-                                if(x){
+                        if(x){
                         cout << "The car has been removed successfully !! \n";
                          }else{
                         cout << "the car is not found\n";  }
