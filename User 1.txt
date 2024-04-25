@@ -1,0 +1,1 @@
+4 brand4 model4 color4 0.4 1
