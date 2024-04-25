@@ -61,7 +61,7 @@ int  main() {
     int numCars = readCarsFromFile(cars);
     
     
-    cout << "Welcome to the Car Rental System!" << endl;
+    cout << "WELCOME TO THE CAR RENTAL SYSTEM!" << endl;
     cout << "---------------------------------\n";
     int userType;
     bool validInput = false;
@@ -137,7 +137,7 @@ int addCar(int& numCars, Car cars1[]) {//TODO:muhammad
     cars1[numCars].available = true;
 
             cout << "The New Car's Number is: " << cars1[numCars].carnum << endl;
-            cout << "Car Added Successfully!\n";
+            cout << "Car Has Been Added Successfully!\n";
             cout << "\t-----\n";
 
     numCars++;
@@ -149,9 +149,9 @@ int addCar(int& numCars, Car cars1[]) {//TODO:muhammad
 void updateCar(int carChoice, Car cars1[],int numCars) {//TODO:Nada
     int detailChoice;
     cout << "\t-----\n";
-    cout << "1.Brand\n2.Model\n3.Color\n4.Distance Travelled by kilometer\n";
+    cout << "1.Brand\n2.Model\n3.Color\n4.Distance travelled by kilometer\n";
     cout << "\t-----\n";
-    cout << "What detail you want to change : ";
+    cout << "Which detail you want to change : ";
     cin >> detailChoice;
     if (carChoice >= 1 && carChoice <= MAX_CARS) {
         int carindex = searchByCarNum(carChoice,numCars,cars1);
@@ -171,7 +171,7 @@ void updateCar(int carChoice, Car cars1[],int numCars) {//TODO:Nada
             cin >> cars1[carindex].color;
             break;
         case 4:
-            cout << "Distance Travelled by kilometer :";
+            cout << "Distance travelled by kilometer :";
             cin >> cars1[carindex].distanceTraveled;
             break;
         default:
@@ -180,7 +180,7 @@ void updateCar(int carChoice, Car cars1[],int numCars) {//TODO:Nada
         cout << "The details are updated successfully" << endl;
     }
     else
-        cout << "Invalid choice ,please try again !" << endl;
+        cout << "Invalid choice. Please try again." << endl;
 }
 // done ... <3
 
@@ -216,21 +216,21 @@ int removeCar(int& numCars, int to_remove, Car cars1[],bool& x) { //TODO: loay
 
 void listCars(int n, Car cars1[]) { //TODO:mohamedAhmed
     if (n > 0) {
-        cout << "\nThe list of Cars :\n";
+        cout << "\nTHE LIST OF CARS :\n";
         cout << "\n";
         for (int i = 0; i < n; i++) {
 
-            cout << "car number " << cars1[i].carnum << "\n";
-            cout << "brand : " << cars1[i].brand << "\n";
-            cout << "model : " << cars1[i].model << "\n";
+            cout << "Car number " << cars1[i].carnum << "\n";
+            cout << "Brand : " << cars1[i].brand << "\n";
+            cout << "Model : " << cars1[i].model << "\n";
             cout << "Color : " << cars1[i].color << "\n";
-            cout << "Traveld Distance : " << cars1[i].distanceTraveled << " K.m " << "\n";
+            cout << "Distance Traveled : " << cars1[i].distanceTraveled << " K.m " << "\n";
             cout << "\t-----\n";
         }
     }
     else {
 
-        cout << "There are no available cars to be shown \n";
+        cout << "There are no available cars to be shown. \n";
 
     }
 }
@@ -258,7 +258,7 @@ void rentCar(int numCars, Car cars1[], int& n){//TODO: abdallah
     bool t = 1;
     while (t)
     {
-        cout << "Select the car's number : ";
+        cout << "Enter the car's number : ";
         cin >> n;
         int CarIndex = searchByCarNum(n,numCars,cars1);
         if (n <= numCars && n > 0) // check the number is in the range
@@ -274,7 +274,7 @@ void rentCar(int numCars, Car cars1[], int& n){//TODO: abdallah
                 cout << " Already rented.\n";
                 bool f = 1;
                 while (f) {
-                    cout << "Do you want to choose another one? [y / n]\n";
+                    cout << "Do you want to choose another one? [Y / N]\n";
                     cin >> ans;
                     if (ans == 'y' || ans == 'Y') {
                         bool t = 1;
@@ -287,7 +287,7 @@ void rentCar(int numCars, Car cars1[], int& n){//TODO: abdallah
                         return;
                     }
                     else {
-                        cout << "invalid choice.\n";
+                        cout << "Invalid choice.\n";
                         continue;
                     }
                 }
@@ -298,7 +298,7 @@ void rentCar(int numCars, Car cars1[], int& n){//TODO: abdallah
             bool f = 1;
             char ans2;
             while (f) {
-                cout << "Do you want to choose another one? [y / n]\n";
+                cout << "Do you want to choose another one? [Y / N]\n";
                 cin >> ans2;
                 if (ans2 == 'y' || ans2 == 'Y') {
                     bool t = 1;
@@ -311,7 +311,7 @@ void rentCar(int numCars, Car cars1[], int& n){//TODO: abdallah
                     return;
                 }
                 else {
-                    cout << "invalid choice.\n";
+                    cout << "Invalid choice.\n";
                     continue;
                 }
             }
@@ -354,7 +354,7 @@ bool Customerlogin(int num, Customer customers[],int& IDnum)
         cout << "Please enter your data : \n";
         cout << "Name: ";
         cin >> username;
-        cout << "id: ";
+        cout << "ID: ";
         cin >>IDnum;
         cout << "Password: ";
         cin >> password;
@@ -369,10 +369,10 @@ bool Customerlogin(int num, Customer customers[],int& IDnum)
     if(vailddata){
         cout << "\t\t-----\n";
         cout << "You logged in successfully!\n";
-        cout << "Welcome back, " << customers[(IDnum-1)].name << endl;
+        cout << "WELCOME BACK, " << customers[(IDnum-1)].name << endl;
         return 1;
     }else{
-        cout <<"invalid data\n";
+        cout <<"Invalid data\n";
      }
      return 0;
 
@@ -381,7 +381,7 @@ bool Customerlogin(int num, Customer customers[],int& IDnum)
 void signUp(int& numCustomers,Customer customers[],int& IDnum) {
    
     if (numCustomers >= MAX_USERS) {
-        cout << "Maximum number of customers reached. Cannot sign up more users." << endl;
+        cout << "Maximum number of customers has been reached. Cannot sign up more users." << endl;
         return;
     }
     
@@ -393,7 +393,7 @@ void signUp(int& numCustomers,Customer customers[],int& IDnum) {
     cin >> newCustomer.mobileNum;
     cout << "Enter your address: ";
     cin >> newCustomer.address;
-    cout << "Create your Password: ";
+    cout << "Create your password: ";
     cin >> newCustomer.Password;
     customers[numCustomers++] = newCustomer;
     cout << "\t\t-----\n";
@@ -582,11 +582,11 @@ void AdminMenu(int numCustomers, int numCars , Customer customers[] , Car cars[]
     do {
 
         cout << "----------------------\n";
-        cout << "   Main Menu:\n";
+        cout << "   MAIN MENU:\n";
         cout << "   1. Add Car\n";
         cout << "   2. Update Car Details\n";
         cout << "   3. Remove Car\n";
-        cout << "   4. List Cars\n";
+        cout << "   4. List Of Cars\n";
         cout << "   5. Check Car Availability\n";
         cout << "   6. Rent Car \n";
         cout << "   7. Logout \n";
@@ -612,9 +612,9 @@ void AdminMenu(int numCustomers, int numCars , Customer customers[] , Car cars[]
             removeCar(numCars, to_remove, cars,x);
             if(x)
             {
-                cout << "The car has been removed successfully !! \n";
+                cout << "The car has been removed successfully! \n";
             }else{
-                cout << "the car is not found\n";
+                cout << "The car is not found\n";
             }
             
             break;
@@ -623,12 +623,12 @@ void AdminMenu(int numCustomers, int numCars , Customer customers[] , Car cars[]
             break;
         case '5':
             if (checkCar(numCars,cars)) {
-                cout << "Fortunately,this car is available." << endl;
+                cout << "Fortunately, This car is available." << endl;
                 cout << "You can rent it" << endl;
             }
             else {
-                cout << "Unfortunately,this car is not available." << endl;
-                cout << "Press 5 to check for another car" << endl;
+                cout << "Unfortunately, This car is not available." << endl;
+                cout << "Press 5 to check for another car." << endl;
             }
             break;
         case '6':
@@ -654,11 +654,11 @@ void CustomerMenu(int numCustomers, int numCars , Customer customers[] , Car car
     do {
 
         cout << "----------------------\n";
-        cout << "   Main Menu:\n";
+        cout << "   MAIN MENU:\n";
         cout << "   1. Add Car\n";
         cout << "   2. Update Car Details\n";
         cout << "   3. Remove Car\n";
-        cout << "   4. List Cars\n";
+        cout << "   4. List Of Cars\n";
         cout << "   5. Check Car Availability\n";
         cout << "   6. Rent Car \n";
         cout << "   7. Logout \n";
@@ -692,7 +692,7 @@ void CustomerMenu(int numCustomers, int numCars , Customer customers[] , Car car
                 }
                 if(notfound)
                 {
-                    cout << "this car is either not yours or doesn't exist please chose another one"<< endl;
+                    cout << "This car is either not yours or doesn't exist please choose another one."<< endl;
                 }
                 else{
                     updateCar(carChoice,cars,numCars);
@@ -719,16 +719,16 @@ void CustomerMenu(int numCustomers, int numCars , Customer customers[] , Car car
                 }
                 if(notfound)
                 {
-                    cout << "this car is either not yours or doesn't exist please chose another one"<< endl;
+                    cout << "This car is either not yours or doesn't exist please choose another one"<< endl;
                 }
                 else{
                         bool x;
                         removeCar(numCars, to_remove, cars,x);
                         removeCar(UserNumCars,to_remove,usercars,x);
                         if(x){
-                        cout << "The car has been removed successfully !! \n";
+                        cout << "The car has been removed successfully! \n";
                          }else{
-                        cout << "the car is not found\n";  }
+                        cout << "The car is not found\n";  }
                 }
 
           
@@ -740,12 +740,12 @@ void CustomerMenu(int numCustomers, int numCars , Customer customers[] , Car car
             break;}
         case 5:{
             if (checkCar(numCars,cars)) {
-                cout << "Fortunately,this car is available." << endl;
+                cout << "Fortunately, This car is available." << endl;
                 cout << "You can rent it" << endl;
             }
             else {
-                cout << "Unfortunately,this car is not available." << endl;
-                cout << "Press 5 to check for another car" << endl;
+                cout << "Unfortunately, This car is not available." << endl;
+                cout << "Press 5 to check for another car." << endl;
             }
             break;}
         case 6:{
@@ -763,7 +763,7 @@ void CustomerMenu(int numCustomers, int numCars , Customer customers[] , Car car
             writeCarsToFile(numCars, cars);
             writeUserCars(UserNumCars,cars,id);
             repeat = false;
-            cout << "Logged out successfully.\n";
+            cout << "Logged out successfully!\n";
             break;
                 }
         default: {
@@ -771,7 +771,7 @@ void CustomerMenu(int numCustomers, int numCars , Customer customers[] , Car car
             bool reques=true;
             char ques;
             while(reques){
-            cout << "Invalid choice. do you want to try again?[y/n]\n";
+            cout << "Invalid choice. Do you want to try again?[Y / N]\n";
             cin >> ques;
             if(ques == 'y' || ques == 'Y')
             {
