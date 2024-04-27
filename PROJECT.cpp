@@ -16,6 +16,7 @@ struct Customer {
     string mobileNum;
     string address;
     string Password;
+   
 
 };
 struct Car {
@@ -25,6 +26,7 @@ struct Car {
     string color;
     float distanceTraveled;
     bool available;
+    int price;
 };
 
 // ----- Functions ------
@@ -135,6 +137,8 @@ int addCar(int& numCars, Car cars1[]) {//TODO:muhammad
 
     cout << "Enter car's Distance Traveled : ";
     cin >> cars1[numCars].distanceTraveled;
+    cout << "Enter car's price :";
+    cin >> cars1[numcars].price;
 
     cars1[numCars].available = true;
 
@@ -228,6 +232,7 @@ void listCars(int n, Car cars1[]) { //TODO:mohamedAhmed
             cout << "Model : " << cars1[i].model << "\n";
             cout << "Color : " << cars1[i].color << "\n";
             cout << "Distance Traveled : " << cars1[i].distanceTraveled << " K.m " << "\n";
+            cout << "Price : " << car1[i].price << "$$" << "\n";
             cout << "\t-----\n";
         }
     }
@@ -812,4 +817,4 @@ void CustomerMenu(int numCustomers, int numCars, Customer customers[], Car cars[
     } while ((ans != 7) && (repeat));
 }
 //done ... <3
-//MoGamil200 
+// gamel git
