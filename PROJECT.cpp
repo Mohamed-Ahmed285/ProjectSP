@@ -838,6 +838,7 @@ void CustomerMenu(int numCustomers, int numCars , Customer customers[] , Car car
         cout << "Enter the number of the car you want to remove: ";
         cin >> to_remove;
           }
+
             for(int i = 0 ; i < UserNumCars ; i++)
                 {
                     if(usercars[i].carnum == to_remove)
@@ -861,6 +862,9 @@ void CustomerMenu(int numCustomers, int numCars , Customer customers[] , Car car
                          }else{
                         cout << "The car is not found\n";  }
                 }
+
+
+
             break;
             }
         case 4:{
