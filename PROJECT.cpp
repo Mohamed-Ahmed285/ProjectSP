@@ -69,10 +69,10 @@ int  main() {
     int id;
     while (!validInput) {
         cout << " \n";
-        cout << "1. Admin" << endl;
-        cout << "2. Old User" << endl;
-        cout << "3. New User" << endl;
-        cout << "4. Exit" << endl;
+        cout << "1. Admin." << endl;
+        cout << "2. Old User." << endl;
+        cout << "3. New User." << endl;
+        cout << "4. Exit." << endl;
         cout << "\n---------------------\n";
         cout << "Enter your choice : ";
         cin >> userType;
@@ -166,7 +166,7 @@ bool repeat=1;
 while(repeat){
     int detailChoice;
     cout << "\t-----\n";
-    cout << "1.Brand\n2.Model\n3.Color\n4.Distance travelled by kilometer\n5.Go back.\n";
+    cout << "1.Brand.\n2.Model.\n3.Color.\n4.Distance travelled by kilometer.\n5.Go back.\n";
     cout << "\t-----\n";
     cout << "Which detail you want to change : ";
     cin >> detailChoice;
@@ -216,7 +216,7 @@ while(repeat){
             cout << "Enter a number:";
             cin >> cars1[carindex].distanceTraveled;
                             }
-            cout << "The details are updated successfully" << endl;
+            cout << "The details are updated successfully!" << endl;
             repeat = false;
             break;
                 }
