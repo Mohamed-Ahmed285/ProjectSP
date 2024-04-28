@@ -162,9 +162,11 @@ int addCar(int& numCars, Car cars1[]) {//TODO:muhammad
 // done ... <3
 
 void updateCar(int carChoice, Car cars1[],int numCars) {//TODO:Nada
+bool repeat=1;
+while(repeat){
     int detailChoice;
     cout << "\t-----\n";
-    cout << "1.Brand\n2.Model\n3.Color\n4.Distance travelled by kilometer\n";
+    cout << "1.Brand\n2.Model\n3.Color\n4.Distance travelled by kilometer\n5.Go back.\n";
     cout << "\t-----\n";
     cout << "Which detail you want to change : ";
     cin >> detailChoice;
@@ -175,31 +177,33 @@ void updateCar(int carChoice, Car cars1[],int numCars) {//TODO:Nada
         cout<<"Invalid choice."<<endl;
         cout << "Which detail you want to change : ";
         cin >> detailChoice;
-        }
+    }
 
 
     if(carChoice >= 1 && carChoice <= MAX_CARS) {
         int carindex = searchByCarNum(carChoice,numCars,cars1);
-        bool boolean;
         switch (detailChoice)
         {
         case 1:
             cout << "Enter the updated details :" << endl;
             cout << "Brand :";
             cin >> cars1[carindex].brand;
-            boolean = true;
+            cout << "The details are updated successfully" << endl;
+            repeat = false;
             break;
         case 2:
             cout << "Enter the updated details :" << endl;
             cout << "Model :";
             cin >> cars1[carindex].model;
-            boolean = true;
+            cout << "The details are updated successfully" << endl;
+            repeat = false;
             break;
         case 3:
             cout << "Enter the updated details :" << endl;
             cout << "Color :";
             cin >> cars1[carindex].color;
-            boolean = true;
+            cout << "The details are updated successfully" << endl;
+            repeat = false;
             break;
         case 4:{
             cout << "Enter the updated details :" << endl;
@@ -212,23 +216,22 @@ void updateCar(int carChoice, Car cars1[],int numCars) {//TODO:Nada
             cout << "Enter a number:";
             cin >> cars1[carindex].distanceTraveled;
                             }
-            boolean = true;
+            cout << "The details are updated successfully" << endl;
+            repeat = false;
             break;
                 }
-
-        default:
-            cout << "Invalid choice. Press 2 to update another car datails." << endl;
-            boolean = false;
+        case 5:{
+            repeat = false;
             break;
         }
-if(boolean){
-        cout << "The details are updated successfully" << endl;
-    }}
-    else
-        cout << "Invalid choice. Please try again." << endl;
-    }
+
+        default:{
+            cout << "Invalid choice." << endl;
+            break;
+        }
 
 
+}}}}
 // done ... <3
 
 
