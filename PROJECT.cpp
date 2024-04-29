@@ -173,7 +173,7 @@ while(repeat){
 
     int detailChoice;
     cout << "\t-----\n";
-    cout << "1.Brand\n2.Model\n3.Color\n4.Distance travelled by kilometer\n5.Go back.\n";
+    cout << "1.Brand.\n2.Model.\n3.Color.\n4.Distance travelled by kilometer.\n5.Go back.\n";
     cout << "\t-----\n";
     cout << "Which detail you want to change : ";
     cin >> detailChoice;
