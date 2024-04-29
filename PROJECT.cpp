@@ -27,7 +27,6 @@ struct Car {
     float distanceTraveled;
     bool available;
 };
-
 // ----- Functions ------
 int  removeCar(int& numCars, int to_remove, Car cars1[],bool& x);
 void copyfunction(int sysnum , int usernum,Car cars[],Car usercars[]);
@@ -48,9 +47,9 @@ bool Adminlogin();
 void signUp(int& numCustomers,Customer customers[],int& IDnum);
 void AdminMenu(int numCustomers, int numCars , Customer customers[] , Car cars[]);
 void CustomerMenu(int numCustomers, int numCars , Customer customers[] , Car cars[],Car usercars[],int id,int& UserNumCars);
-void Rearrange(int UserNumCars,int Numcars , Car cars[],Car usercars[]);
+void Rearrange(int UserNumCars,int Numcars , Car cars[],Car usercars[],bool& changed);
 int  searchByCarNum(int CarNum, int NumCars,Car cars[]);
-void checkremovedCars(int& usernumcars,int numcars,Car usercars[],Car cars[]);
+void checkremovedCars(int& usernumcars,int numcars,Car usercars[],Car cars[],bool& removed);
 
 
 int  main() {
@@ -68,12 +67,13 @@ int  main() {
     bool validInput = false;
     int id;
     while (!validInput) {
-        cout << " \n";
+        cout << " \n\n";
+        cout << "----------------------\n";
         cout << "1. Admin" << endl;
         cout << "2. Old User" << endl;
         cout << "3. New User" << endl;
         cout << "4. Exit" << endl;
-        cout << "\n---------------------\n";
+        cout << "----------------------\n";
         cout << "Enter your choice : ";
         cin >> userType;
         while(cin.fail()){
@@ -95,10 +95,22 @@ int  main() {
             }
             case 2:{
 
-             if( Customerlogin(numCustomers,customers,id)){
+                    bool changed;
+                    bool removed;
+                    if(Customerlogin(numCustomers,customers,id)){
                     int UserNumCars = readUserCars(usercars,id);
-                    Rearrange(UserNumCars,numCars,cars,usercars);
-                    checkremovedCars(UserNumCars,numCars,usercars,cars);
+                    Rearrange(UserNumCars,numCars,cars,usercars,changed);
+                    if(changed){
+                            cout << "\n-------------\n";
+                            cout << "The admin has updated one of your cars.";
+                            cout << "\n-------------\n";
+                    }
+                    checkremovedCars(UserNumCars,numCars,usercars,cars,removed);    
+                    if(removed){
+                            cout << "\n-------------\n";
+                            cout << "The admin has removed one of your cars.";
+                            cout << "\n-------------\n";
+                    }
                     CustomerMenu(numCustomers, numCars,customers,cars,usercars,id,UserNumCars);
                     writeUserCars(UserNumCars,usercars,id);
                     break;
@@ -106,7 +118,6 @@ int  main() {
                     break;
                 }}
             case 3:{
-
                 signUp(numCustomers,customers,id);
                 writeCustomersToFile(numCustomers,customers);
                 int UserNumCars = readUserCars(usercars,id);
@@ -118,11 +129,10 @@ int  main() {
                 validInput = true;
                 break;}
             default:{
-                cout << "Invalid user type. Please try again." << endl;
+                cout << "Invalid choice. Please try again." << endl;
             }
         }
     }
-
     return 0;
 }
 
@@ -141,43 +151,39 @@ int addCar(int& numCars, Car cars1[]) {//TODO:muhammad
 
     cout << "Enter car's Distance Traveled : ";
     cin >> cars1[numCars].distanceTraveled;
-     while(cin.fail()){
+        while(cin.fail()){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Invalid choice. Please try again."<<endl;
         cout << "Enter car's Distance Traveled : ";
         cin >> cars1[numCars].distanceTraveled;
-          }
-
+                        }
     cars1[numCars].available = true;
-
             cout << "The New Car's Number is: " << cars1[numCars].carnum << endl;
             cout << "Car Has Been Added Successfully!\n";
             cout << "\t-----\n";
-
     numCars++;
     return numCars;
-
 }
 // done ... <3
 
 void updateCar(int carChoice, Car cars1[],int numCars) {//TODO:Nada
 bool repeat=1;
 while(repeat){
+
     int detailChoice;
     cout << "\t-----\n";
     cout << "1.Brand\n2.Model\n3.Color\n4.Distance travelled by kilometer\n5.Go back.\n";
     cout << "\t-----\n";
     cout << "Which detail you want to change : ";
     cin >> detailChoice;
-
     while(cin.fail()){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout<<"Invalid choice."<<endl;
         cout << "Which detail you want to change : ";
         cin >> detailChoice;
-    }
+                    }
 
 
     if(carChoice >= 1 && carChoice <= MAX_CARS) {
@@ -214,8 +220,7 @@ while(repeat){
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Invalid choice. Please try again."<<endl;
             cout << "Enter a number:";
-            cin >> cars1[carindex].distanceTraveled;
-                            }
+            cin >> cars1[carindex].distanceTraveled;}
             cout << "The details are updated successfully" << endl;
             repeat = false;
             break;
@@ -236,7 +241,6 @@ while(repeat){
 
 
 
-// removeCar(usernumcars,(usercars[i].carnum),usercars, x);
 int removeCar(int& numCars, int to_remove, Car cars1[],bool& x) { //TODO: loay
 
     bool isfound = false;
@@ -286,7 +290,7 @@ void listCars(int n, Car cars1[]) { //TODO:mohamedAhmed
 }
 //done ... <3
 
-bool checkCar(int NumCars,Car cars1[]) { //TODO:noha
+bool checkCar(int NumCars,Car cars1[]) { //TODO:Noha
     bool check;
     int carnumber;
     cout << "PLease enter the number of the car you want to check: ";
@@ -329,7 +333,7 @@ void rentCar(int numCars, Car cars1[], int& n){//TODO: abdallah
         if (n <= numCars && n > 0) // check the number is in the range
         {
 
-            if (cars1[CarIndex].available == true) // check if the car is avaliable or rented
+            if (cars1[CarIndex].available == true) // check if the car is avaliable or rented.
             {
                 cout << "\n The Car is Avaliable, You have rented it Succefully!\n\n";
                 cars1[CarIndex].available = false;
@@ -359,7 +363,7 @@ void rentCar(int numCars, Car cars1[], int& n){//TODO: abdallah
             }
         }
         else {
-            cout << "Invalid Number.\n";
+            cout << "This Car is not found.\n";
             bool f = 1;
             char ans2;
             while (f) {
@@ -382,8 +386,6 @@ void rentCar(int numCars, Car cars1[], int& n){//TODO: abdallah
             }
         }
     }
-
-
 }
 //done ... <3
 
@@ -391,7 +393,7 @@ void rentCar(int numCars, Car cars1[], int& n){//TODO: abdallah
 
 
 
-// login and signup functions ---> mohamedAhmed && noha
+// login and signup functions ---> mohamedAhmed && Noha
 bool Adminlogin() {
 
     string username, password;
@@ -478,7 +480,7 @@ void signUp(int& numCustomers,Customer customers[],int& IDnum) {
 
 
 
-// filestream functions -> mohammedAhmed && noha
+// filestream functions -> mohammedAhmed && Noha
 
 int readCarsFromFile(Car cars1[]) {
 
@@ -565,8 +567,9 @@ usercars[usernum].available = cars[sysnum].available;
 
 }
 //done ... <3
-void Rearrange(int UserNumCars,int Numcars , Car cars[],Car usercars[]){
+void Rearrange(int UserNumCars,int Numcars , Car cars[],Car usercars[],bool& changed){
 
+                changed=0;
                 int carindex_userfile=0;
                 bool notfound = true;
                 int carindex_sysfile=0;
@@ -591,6 +594,7 @@ void Rearrange(int UserNumCars,int Numcars , Car cars[],Car usercars[]){
                 }
                 else{
                     copyfunction(carindex_sysfile , carindex_userfile ,cars,usercars);
+                    changed=1;
                 }
                 }
 
@@ -616,8 +620,9 @@ int searchByCarNum(int CarNum, int NumCars,Car cars[]){
 
 };
 //done ... <3
-void checkremovedCars(int& usernumcars,int numcars,Car usercars[],Car cars[]){
+void checkremovedCars(int& usernumcars,int numcars,Car usercars[],Car cars[],bool& removed){
 bool found=true;
+removed = false;
 for(int i=0;i<usernumcars;i++)
 {
 
@@ -635,13 +640,12 @@ for(int i=0;i<usernumcars;i++)
     }
 
     if(found)
-    {
+        {
         bool x;
         removeCar(usernumcars,(usercars[i].carnum),usercars, x);
-
+        removed = true;
+        }
     }
-
-}
 }
 //done ... <3
 
@@ -688,6 +692,7 @@ void AdminMenu(int numCustomers, int numCars , Customer customers[] , Car cars[]
                         cout << "Enter the number of the car you want to update its details : ";
                         cin >> carChoice;
                             }
+
             for(int i = 0 ; i < numCars ; i++)
                 {
                     if(cars[i].carnum == carChoice)
@@ -704,7 +709,6 @@ void AdminMenu(int numCustomers, int numCars , Customer customers[] , Car cars[]
                     cout << "This car doesn't exist please choose another one."<< endl;
                 }else{
             updateCar(carChoice,cars,numCars);
-                
                     }
                 break;
                 }
@@ -906,8 +910,8 @@ void CustomerMenu(int numCustomers, int numCars , Customer customers[] , Car car
                    break;
                 }
 
-          }
-    }} while ((ans != 7) && (repeat));
-
-    }
+             }
+        }
+    } while ((ans != 7) && (repeat));
+}
 //done ... <3
