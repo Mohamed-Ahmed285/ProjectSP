@@ -480,7 +480,7 @@ void signUp(int& numCustomers,Customer customers[],int& IDnum) {
 
 
 
-// filestream functions -> mohammedAhmed 
+// filestream functions 
 
 int readCarsFromFile(Car cars1[]) {
 
