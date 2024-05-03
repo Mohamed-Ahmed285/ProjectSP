@@ -554,7 +554,7 @@ void writeUserCars(int UserNumCars,Car usercars[],int id) {
 
 
 
-//other functions ---->  mohamedAhmed
+
 void copyfunction(int sysnum , int usernum,Car cars[],Car usercars[])
 {
 
@@ -567,6 +567,7 @@ usercars[usernum].available = cars[sysnum].available;
 
 }
 //done ... <3
+
 void Rearrange(int UserNumCars,int Numcars , Car cars[],Car usercars[],bool& changed){
 
                 changed=0;
