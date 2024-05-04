@@ -695,7 +695,6 @@ void Rearrange(int UserNumCars,int Numcars , Car cars[],Car usercars[],bool& cha
                     continue;
                 }
                 else{
-                    if(usercars[carindex_userfile].brand!=cars[carindex_sysfile].brand){
 
                     if(usercars[carindex_userfile].brand!=cars[carindex_sysfile].brand){
 
@@ -725,31 +724,7 @@ void Rearrange(int UserNumCars,int Numcars , Car cars[],Car usercars[],bool& cha
                      }
                         }
                    }
-
-                     }else if(usercars[carindex_userfile].model!=cars[carindex_sysfile].model){
-                        
-                    copyfunction(carindex_sysfile , carindex_userfile ,cars,usercars);
-                    changed=1;
-
-                     }else if(usercars[carindex_userfile].color!=cars[carindex_sysfile].color){
-                        
-                    copyfunction(carindex_sysfile , carindex_userfile ,cars,usercars);
-                    changed=1;
-
-                     }else if(usercars[carindex_userfile].distanceTraveled!=cars[carindex_sysfile].distanceTraveled){
-                        
-                    copyfunction(carindex_sysfile , carindex_userfile ,cars,usercars);
-                    changed=1;
-
-                     }else if(usercars[carindex_userfile].available!=cars[carindex_sysfile].available){
-                        
-                    copyfunction(carindex_sysfile , carindex_userfile ,cars,usercars);
-                    changed=1;
-
-                     }
                         }
-                   }
-                }
 //done ... <3
 int searchByCarNum(int CarNum, int NumCars,Car cars[]){
 
