@@ -287,6 +287,7 @@ int removeCar(int& numCars, int to_remove, Car cars1[],bool& x) { //TODO: loay
         {
             isfound = true;
             for (int j = i; j < numCars - 1; j++)
+            for (int j = i; j < numCars - 1; j++)
             {
                 cars1[j] = cars1[j + 1];
             }
@@ -483,6 +484,7 @@ void rentCar(int numCars, Car cars1[], int& n){//TODO: abdallah
 
 
 // login and signup functions ---> 
+// login and signup functions ---> 
 bool Adminlogin() {
 
     string username, password;
@@ -580,6 +582,7 @@ void signUp(int& numCustomers,Customer customers[],int& IDnum) {
 
 
 // filestream functions 
+// filestream functions 
 
 int readCarsFromFile(Car cars1[]) {
 
@@ -654,6 +657,7 @@ void writeUserCars(int UserNumCars,Car usercars[],int id) {
 
 
 
+
 void copyfunction(int sysnum , int usernum,Car cars[],Car usercars[])
 {
 
@@ -667,6 +671,7 @@ usercars[usernum].available = cars[sysnum].available;
 }
 //done ... <3
 
+
 void Rearrange(int UserNumCars,int Numcars , Car cars[],Car usercars[],bool& changed){
 
                 changed=0;
@@ -677,10 +682,12 @@ void Rearrange(int UserNumCars,int Numcars , Car cars[],Car usercars[],bool& cha
                 for(int i = 0 ; i < UserNumCars ; i++)
                 {
                     for(int n = 0; n < Numcars ; n++) {
+                    for(int n = 0; n < Numcars ; n++) {
                     if(usercars[i].carnum == cars[n].carnum)
                     {
                         carindex_userfile=i;
                         carindex_sysfile=n;
+                        notfound = false;  }
                         notfound = false;  }
                     }
                 if(notfound)
@@ -690,8 +697,34 @@ void Rearrange(int UserNumCars,int Numcars , Car cars[],Car usercars[],bool& cha
                 else{
                     if(usercars[carindex_userfile].brand!=cars[carindex_sysfile].brand){
 
+                    if(usercars[carindex_userfile].brand!=cars[carindex_sysfile].brand){
+
                     copyfunction(carindex_sysfile , carindex_userfile ,cars,usercars);
                     changed=1;
+
+                     }else if(usercars[carindex_userfile].model!=cars[carindex_sysfile].model){
+                        
+                    copyfunction(carindex_sysfile , carindex_userfile ,cars,usercars);
+                    changed=1;
+
+                     }else if(usercars[carindex_userfile].color!=cars[carindex_sysfile].color){
+                        
+                    copyfunction(carindex_sysfile , carindex_userfile ,cars,usercars);
+                    changed=1;
+
+                     }else if(usercars[carindex_userfile].distanceTraveled!=cars[carindex_sysfile].distanceTraveled){
+                        
+                    copyfunction(carindex_sysfile , carindex_userfile ,cars,usercars);
+                    changed=1;
+
+                     }else if(usercars[carindex_userfile].available!=cars[carindex_sysfile].available){
+                        
+                    copyfunction(carindex_sysfile , carindex_userfile ,cars,usercars);
+                    changed=1;
+
+                     }
+                        }
+                   }
 
                      }else if(usercars[carindex_userfile].model!=cars[carindex_sysfile].model){
                         
@@ -767,6 +800,7 @@ for(int i=0;i<usernumcars;i++)
 
 
 
+// Menus functions----> mohamedAhmed 
 // Menus functions----> mohamedAhmed 
 void AdminMenu(int numCustomers, int numCars , Customer customers[] , Car cars[]){
     int ans;
