@@ -568,7 +568,7 @@ void rentCar(int numCars, Car cars1[], int& n) {//TODO: abdallah
                 break;
             }
             else {
-                cout << " We are sorry this car is already rented.\n";
+                cout << " We are sorry, This car is already rented.\n";
                 bool f = 1;
                 while (f) {
                     cout << "Do you want to choose another one? [Y / N]\n";
@@ -638,7 +638,7 @@ bool Adminlogin() {
     }
     else {
         cout << "Invalid username or password. Please try again." << endl;
-        cout << "If you are a user please press 2 (Old User) or 3 (New User) " << endl;
+        cout << "If you are a user please press 2 (Old User) or 3 (New User). " << endl;
         return 0;
     }
 
