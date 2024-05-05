@@ -40,6 +40,7 @@ void writeCarsToFile(int numCars, Car cars1[]);
 void writeUserCars(int UserNumCars, Car usercars[], int id);
 int  readCustomersFromFile(Customer customers[]);
 void writeCustomersToFile(int numCustomers, Customer customers[]);
+void CreateFile(int numCustomers, Customer customers[]);
 //------------------------------------
 
 int  addCar(int& m, Car cars1[]); //Mohammed Tarek
@@ -47,7 +48,6 @@ void updateCar(int carChoice, Car cars1[], int numCars); //Nada
 void listCars(int n, Car cars1[]); //Mohammed
 void listUsers(int n, Customer customers[]); // Mohamed
 bool checkCar(int NumCars, Car cars1[]); //Noha
-void CreateFile(int numCustomers, Customer customers[]);
 void rentCar(int x, Car cars1[], int& n); //Abdallah
 bool Customerlogin(int num, Customer customers[], int& IDnum); //Gamel
 bool Adminlogin(); //Gamel
