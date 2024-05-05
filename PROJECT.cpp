@@ -1054,7 +1054,7 @@ void AdminMenu(int numCustomers, int numCars, Customer customers[], Car cars[], 
                     cout << "The User has been removed successfully! \n";
                 }
                 else {
-                    cout << "The User is not found\n";
+                    cout << "The User is not found.\n";
                 }
 
                 break;
