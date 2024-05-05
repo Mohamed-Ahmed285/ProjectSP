@@ -56,7 +56,7 @@ void AdminMenu(int numCustomers, int numCars, Customer customers[], Car cars[], 
 void CustomerMenu(int numCustomers, int numCars, Customer customers[], Car cars[], Car usercars[], int id, int& UserNumCars);
 void Rearrange(int UserNumCars, int Numcars, Car cars[], Car usercars[], bool& changed); //Mohammed
 int  searchByCarNum(int CarNum, int NumCars, Car cars[]); //Noha
-void checkremovedCars(int& usernumcars, int numcars, Car usercars[], Car cars[], bool& removed); //Mohamed
+void checkremovedCars(int& usernumcars, int numcars, Car usercars[], Car cars[], bool& removed); //Loay
 void updateUser(int id, Customer customers[], int numCustomers); //Noha
 
 // ==============files===============
