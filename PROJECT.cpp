@@ -29,7 +29,7 @@ struct Car {
     bool available;
 };
 int  removeCar(int& numCars, int to_remove, Car cars1[], bool& x);   //Loay
-void removeUser(int& numCustomers, int to_removeId, Customer customers[], bool& message, Car usercars[], Car cars[], int& numcars);
+void removeUser(int& numCustomers, int to_removeId, Customer customers[], bool& message, Car usercars[], Car cars[], int& numcars);//Mohammed
 void copyfunction(int sysnum, int usernum, Car cars[], Car usercars[]); //Nada
 
 
@@ -921,11 +921,6 @@ void checkremovedCars(int& usernumcars, int numcars, Car usercars[], Car cars[],
 }
 //done ... <3
 
-
-
-
-// Menus functions----> mohamedAhmed
-// Menus functions----> mohamedAhmed
 void AdminMenu(int numCustomers, int numCars, Customer customers[], Car cars[], Car usercars[]) {
     int ans;
     do {
