@@ -116,12 +116,14 @@ int main() {
         cout << "-----------------------\n";
         cout << "Enter your choice : ";
         cin >> userType;
+        cin.ignore(100,'\n');
         while (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Invalid choice. Please try again." << endl;
             cout << "Enter your choice : ";
             cin >> userType;
+            cin.ignore(100,'\n');
         }
         switch (userType) {
         case 1: {
