@@ -121,7 +121,7 @@ int main() {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Invalid choice. Please try again." << endl;
-            cout << "Enter your choice : ";
+            cout << "Enter your choice number : ";
             cin >> userType;
             cin.ignore(100,'\n');
         }
