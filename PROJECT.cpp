@@ -114,7 +114,7 @@ int main() {
         cout << "3. New User." << endl;
         cout << "4. Exit." << endl;
         cout << "-----------------------\n";
-        cout << "Enter your choice : ";
+        cout << "Enter your choice number : ";
         cin >> userType;
         cin.ignore(100,'\n');
         while (cin.fail()) {
@@ -957,7 +957,7 @@ void AdminMenu(int& numCustomers, int& numCars, Customer customers[], Car cars[]
         cout << "   8. Rent Car.\n";
         cout << "   9. Logout.\n";
         cout << "-----------------------\n";
-        cout << "Enter your choice: ";
+        cout << "Enter your choice number : ";
         cin >> ans;
         cin.ignore();
         if (cin.fail()) {
@@ -1105,7 +1105,7 @@ void CustomerMenu(int& numCustomers, int& numCars, Customer customers[], Car car
         cout << "   8. Rent Car.\n";
         cout << "   9. Logout.\n";
         cout << "-----------------------\n";
-        cout << "Enter your choice: ";
+        cout << "Enter your choice number : ";
         cin >> ans;
         cin.ignore();
         if (cin.fail()) {
