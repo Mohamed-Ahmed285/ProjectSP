@@ -408,11 +408,11 @@ int removeCar(int& numCars, int to_remove, Car cars1[], bool& isRemoved) { //TOD
         if (cars1[i].carnum == to_remove)
         {
             isfound = true;
-            for (int j = i; j < numCars - 1; j++)
-                for (int j = i; j < numCars - 1; j++)
-                {
-                    cars1[j] = cars1[j + 1];
-                }
+            
+             for (int j = i; j < numCars - 1; j++)
+             {
+                 cars1[j] = cars1[j + 1];
+             }
             (numCars)--;
             break;
         }
