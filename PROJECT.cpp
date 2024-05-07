@@ -400,7 +400,7 @@ void updateUser(int id, Customer customers[], int numCustomers)
 
 
 
-int removeCar(int& numCars, int to_remove, Car cars1[], bool& x) { //TODO: loay
+int removeCar(int& numCars, int to_remove, Car cars1[], bool& isRemoved) { //TODO: loay
 
     bool isfound = false;
     for (int i = 0; i < numCars; i++)
@@ -419,10 +419,10 @@ int removeCar(int& numCars, int to_remove, Car cars1[], bool& x) { //TODO: loay
     }
 
     if (isfound) {
-        x = true;
+        isRemoved = true;
     }
     else {
-        x = false;
+        isRemoved = false;
     }
 
     return numCars;
