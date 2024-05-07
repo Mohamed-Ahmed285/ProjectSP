@@ -912,7 +912,7 @@ int searchByCarNum(int CarNum, int NumCars, Car cars[]) {
 };
 //done ... <3
 void checkremovedCars(int& usernumcars, int numcars, Car usercars[], Car cars[], bool& removed) {
-    bool found = true;
+    bool foundToRemove = true;
     removed = false;
     for (int i = 0; i < usernumcars; i++)
     {
@@ -921,20 +921,20 @@ void checkremovedCars(int& usernumcars, int numcars, Car usercars[], Car cars[],
         for (int n = 0; n < numcars; n++) {
 
             if (usercars[i].carnum == cars[n].carnum) {
-                found = false;
+                foundToRemove = false;
                 break;
             }
             else {
-                found = true;
+                foundToRemove = true;
             }
 
 
         }
 
-        if (found)
+        if (foundToRemove)
         {
-            bool x;
-            removeCar(usernumcars, (usercars[i].carnum), usercars, x);
+            bool isRemoved;
+            removeCar(usernumcars, (usercars[i].carnum), usercars, isRemoved);
             removed = true;
         }
     }
